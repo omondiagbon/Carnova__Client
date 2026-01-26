@@ -1,0 +1,180 @@
+client/
+│
+├── public/
+│   ├── index.html
+│   └── favicon.ico
+│
+├── src/
+│   ├── assets/
+│   │   ├── images/
+│   │   └── icons/
+│   │
+│   ├── components/
+│   │   ├── common/
+│   │   │   ├── Button.jsx
+│   │   │   ├── Loader.jsx
+│   │   │   └── Pagination.jsx
+│   │   ├── layout/
+│   │   │   ├── NavBar.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   └── Sidebar.jsx
+│   │   └── cards/
+│   │       └── CarCard.jsx
+│   │
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── Cars.jsx
+│   │   ├── CarDetails.jsx
+│   │   ├── Cart.jsx
+│   │   ├── Checkout.jsx
+│   │   ├── Login.jsx
+│   │   ├── Register.jsx
+│   │   └── NotFound.jsx
+│   │
+│   ├── context/
+│   │   └── AuthContext.jsx
+│   │
+│   ├── hooks/
+│   │   ├── useFetch.js
+│   │   └── useAuth.js
+│   │
+│   ├── utils/
+│   │   ├── api.js
+│   │   └── helpers.js
+│   │
+│   ├── styles/
+│   │   └── global.css
+│   │
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── router.jsx
+│
+├── package.json
+└── vite.config.js   (if using Vite)
+
+ 
+    car e-commerce website
+
+1-core features (What the website must have)
+i. Vehicle Listings
+Each car should have:
+Car name, model, year
+Price
+Mileage
+Engine type (Petrol, Diesel, Electric)
+Transmission (Auto/Manual)
+Car images
+Description
+
+ii. Search & Filtering
+Users should be able to filter by:
+Price range
+Brand (Toyota, Honda, Mercedes…)
+Car type (SUV, Sedan, Truck…)
+Year
+
+iii. User Account
+Buyers can:
+Sign up / Login
+Save favorite cars
+
+iv. Car Details Page
+A single page showing:
+Big car images
+Price
+Contact button
+Add to cart
+
+2. Features
+Payment integration (Paystack)
+Reviews / Ratings
+
+3. Frontend Requirements
+Homepage layout
+Single-car page
+Login/Register pages
+Cart/Checkout (if selling directly)
+Dashboard (Admin + Buyer)
+
+4. Admin Dashboard Requirements
+Admin must be able to:
+Add new cars
+Update car details
+Upload car images
+Remove sold cars
+View user enquiries/orders
+View statistics (sales, views, trending cars)
+
+5. Security Requirements
+HTTPS (SSL)
+Input validation
+Secure login system
+Rate limits on API
+Prevent SQL injection or XSS
+
+ --Navbar->Logo    Home  ShopCars  AboutUs Contact SearchBar
+ CarNova   | Home | shop | Blog | About | Contact | 🔍 | ❤️ | Login
+
+
+
+
+
+      <div className="flex gap-6">
+        {/* SIDEBAR */}
+        <div className="w-1/4 bg-white rounded-lg shadow-md p-4">
+          <AdminSidebar />
+        </div>
+
+        {/* MAIN CONTENT */}
+        <div className="w-3/4 space-y-6">
+          {/* Add Cars Section */}
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h2 className="text-xl font-semibold mb-4">Add New Car</h2>
+            <AddCars />
+          </div>
+
+          {/* Manage Cars Section */}
+          <div className="bg-white p-6 rounded-lg shadow-md">
+            <h2 className="text-xl font-semibold mb-4">Manage Cars</h2>
+            <ManageCars />
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+
+
+
+
+
+
+
+
+          <div className="space-y-4">
+            {userorders.map((order) => (
+              <div
+                key={order._id}
+                className="border border-gray-800 rounded-xl p-4 flex justify-between"
+              >
+                <div>
+                  <p className="font-medium">Order ID</p>
+                  <p className="text-sm text-gray-400">{order._id}</p>
+                </div>
+
+                <div>
+                  <p className="font-medium">Total</p>
+                  <p className="text-green-500 font-semibold">
+                    ₦{order.totalAmount?.toLocaleString()}
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-medium">Status</p>
+                  <p className="text-blue-400 capitalize">
+                    {order.paymentStatus}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
