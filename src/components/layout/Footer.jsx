@@ -46,8 +46,8 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link to="/" className="hover:text-white transition">
-                Press
+              <Link to="/admin/dashboard" className="hover:text-white transition">
+                Admin
               </Link>
             </li>
           </ul>

@@ -8,7 +8,7 @@ const Logout = () => {
   useEffect(() => {
     const handleLogout = async () => {
       try {
-        await api.get("/api/logout", {
+        await api.get("/logout", {
           withCredentials: true,
         });
 

@@ -55,7 +55,7 @@ const Register = () => {
 
     try {
       const response = await api.post(
-        "/api/register",
+        "/register",
         user,
         {
           headers: {

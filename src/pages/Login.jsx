@@ -42,7 +42,7 @@ const Login = () => {
 
     try {
       const response = await api.post(
-        "/api/login",
+        "/login",
         user,
         {
           headers: { "Content-Type": "application/json" },
